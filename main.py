@@ -42,7 +42,7 @@ async def eval(bot, update):
             with BytesIO(str.encode(str(output))) as output_file:
                 output_file.name = "output.txt"
                 await update.reply_document(
-                    document=output_file",
+                    document=output_file,
                     caption="Made by @FayasNoushad"
                 )
     except Exception as error:
