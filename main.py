@@ -1,4 +1,5 @@
 import os
+from io import BytesIO
 from pyrogram import Client, filters
 
 FayasNoushad = Client(
@@ -27,5 +28,24 @@ async def start(bot, update):
         reply_markup=START_BUTTONS,
         disable_web_page_preview=True
     )
+
+@FayasNoushad.on_message(filters.private & filters.reply & filters.command(["eval", "evaluate", "run"]))
+async def eval(bot, update):
+    try:
+        output = eval(update.reply_to_message.text)
+        if len(output) < 4096:
+            await update.reply_to_message.reply_text(
+                text=output,
+                disable_web_page_preview=True
+            )
+        else:
+            with BytesIO(str.encode(str(output))) as output_file:
+                output_file.name = "output.txt"
+                await update.reply_to_message.reply_document(
+                    document=output_file",
+                    caption="Made by @FayasNoushad"
+                )
+    except Exception as error:
+        print(error)
 
 FayasNoushad.run()
