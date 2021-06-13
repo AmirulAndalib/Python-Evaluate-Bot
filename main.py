@@ -34,14 +34,14 @@ async def eval(bot, update):
     try:
         output = eval(update.reply_to_message.text)
         if len(output) < 4096:
-            await update.reply_to_message.reply_text(
+            await update.reply_text(
                 text=output,
                 disable_web_page_preview=True
             )
         else:
             with BytesIO(str.encode(str(output))) as output_file:
                 output_file.name = "output.txt"
-                await update.reply_to_message.reply_document(
+                await update.reply_document(
                     document=output_file",
                     caption="Made by @FayasNoushad"
                 )
