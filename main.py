@@ -1,6 +1,7 @@
 import os
 from io import BytesIO
 from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 FayasNoushad = Client(
     "Python-Evaluate-Bot",
