@@ -33,7 +33,7 @@ async def start(bot, update):
 @FayasNoushad.on_message(filters.private & filters.reply & filters.command(["eval", "evaluate", "run"]))
 async def eval(bot, update):
     try:
-        output = eval(update.reply_to_message.text)
+        output = float(eval(update.reply_to_message.text))
         if len(output) < 4096:
             await update.reply_text(
                 text=output,
