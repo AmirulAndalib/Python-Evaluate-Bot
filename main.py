@@ -1,3 +1,5 @@
+# Author: Fayas (https://github.com/FayasNoushad) (@FayasNoushad)
+
 import os
 from io import BytesIO
 from pyrogram import Client, filters
