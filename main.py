@@ -40,6 +40,7 @@ async def evaluation(bot, update):
         if len(output) < 4096:
             await update.reply_text(
                 text=output,
+                reply_markup=BUTTONS,
                 disable_web_page_preview=True,
                 quote=True
             )
@@ -49,6 +50,7 @@ async def evaluation(bot, update):
                 await update.reply_document(
                     document=output_file,
                     caption="Made by @FayasNoushad",
+                    reply_markup=BUTTONS,
                     quote=True
                 )
     except Exception as error:
