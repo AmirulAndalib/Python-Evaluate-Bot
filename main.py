@@ -33,7 +33,11 @@ async def start(bot, update):
         quote=True
     )
 
-@FayasNoushad.on_message(filters.private & filters.reply & filters.command(["eval", "evaluate", "run"]))
+@FayasNoushad.on_message(
+    filters.private &
+    filters.reply &
+    filters.command(["eval", "evaluate", "run"])
+)
 async def evaluation(bot, update):
     code = update.reply_to_message.text
     try:
