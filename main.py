@@ -33,15 +33,20 @@ async def start(bot, update):
         quote=True
     )
 
+def evaluate(text, is_round=False):
+    if is_round:
+        return round(eval(text))
+    else:
+        return float(eval(text))
+
 @FayasNoushad.on_message(
     filters.private &
     filters.reply &
     filters.command(["eval", "evaluate", "run"])
 )
 async def evaluation(bot, update):
-    code = update.reply_to_message.text
+    output = evaluate(update.reply_to_message.text)
     try:
-        output = str(eval(code))
         if len(output) < 4096:
             await update.reply_text(
                 text=output,
@@ -59,6 +64,11 @@ async def evaluation(bot, update):
                     quote=True
                 )
     except Exception as error:
-        print(error)
+        await update.reply_text(
+            text=error,
+            reply_markup=BUTTONS,
+            disable_web_page_preview=True,
+            quote=True
+        )
 
 FayasNoushad.run()
