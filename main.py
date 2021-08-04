@@ -13,7 +13,10 @@ FayasNoushad = Client(
 )
 
 START_TEXT = """
-Hello {}, I am a python evaluate telegram bot.
+Hello {}
+I am a python evaluate telegram bot.
+
+> `I can evaluate python code`
 
 Made by @FayasNoushad
 """
