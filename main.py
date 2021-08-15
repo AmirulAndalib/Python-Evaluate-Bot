@@ -18,12 +18,12 @@ I am a python evaluate telegram bot.
 
 > `I can evaluate python code`
 
-Made by @FayasNoushad
+Made by @Thanos_Powerr
 """
 
 BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('⚙ Join Updates Channel ⚙', url='https://telegram.me/FayasNoushad')
+        InlineKeyboardButton('⚙ Join Updates Channel ⚙', url='https://telegram.me/BOTS4U_AND_LOOTS4U')
         ]]
     )
 
@@ -62,7 +62,7 @@ async def evaluation(bot, update):
                 output_file.name = "output.txt"
                 await update.reply_document(
                     document=output_file,
-                    caption="Made by @FayasNoushad",
+                    caption="Made by @Thanos_Powerr",
                     reply_markup=BUTTONS,
                     quote=True
                 )
