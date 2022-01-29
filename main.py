@@ -48,7 +48,7 @@ def evaluate(text, is_round=False):
     )
 )
 async def evaluation(bot, update):
-    output = evaluate(update.reply_to_message.text)
+    output = str(evaluate(update.reply_to_message.text))
     try:
         if len(output) < 4096:
             await update.reply_text(
